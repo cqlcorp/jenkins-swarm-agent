@@ -43,7 +43,8 @@ Required env variables:
     -e JENKINS_URL=https://jenkins.example.com
     -e JENKINS_SSL_FINGERPRINTS=SHA256FINGERPRINTS
     -e JENKINS_USERNAME=AgentUsername
-    -e JENKINS_PASSWORD=AgentPassword
+
+The password for the Jenkins username should be set as a secret named `jenkins-agent-password`.
 
 Supported env variables - if not set the defaults are used
 
