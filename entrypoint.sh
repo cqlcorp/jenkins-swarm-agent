@@ -5,6 +5,7 @@ LABELS="${LABELS:-docker}"
 EXECUTORS="${EXECUTORS:-3}"
 FSROOT="${FSROOT:-/tmp/jenkins}"
 NODENAMEPREFIX="${NODENAMEPREFIX:-docker-}"
+JENKINS_PASSWORD="$(cat /run/secrets/jenkins-agent-password)"
 
 mkdir -p $FSROOT
 java -jar swarm-client.jar \
