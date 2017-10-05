@@ -7,4 +7,13 @@ FSROOT="${FSROOT:-/tmp/jenkins}"
 NODENAMEPREFIX="${NODENAMEPREFIX:-docker-}"
 
 mkdir -p $FSROOT
-java -jar swarm-client.jar -labels "$LABELS" -executors "$EXECUTORS" -fsroot /tmp/jenkins -name ${NODENAMEPREFIX}$(hostname) $(cat /run/secrets/jenkins | sed -e 's/\r$//')
+java -jar swarm-client.jar \
+     -labels "$LABELS" \
+     -executors "$EXECUTORS" \
+     -fsroot "$FSROOT" \
+     -name ${NODENAMEPREFIX}$(hostname) \
+     -disableClientsUniqueId \
+     -master "${JENKINS_URL}" \
+     -sslFingerprints "${JENKINS_SSL_FINGERPRINTS}" \
+     -username "${JENKINS_USERNAME}" \
+     -passwordEnvVariable JENKINS_PASSWORD
