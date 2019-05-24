@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
 
-LABELS="${LABELS:-docker}"
-EXECUTORS="${EXECUTORS:-3}"
-FSROOT="${FSROOT:-/tmp/jenkins}"
-NODENAMEPREFIX="${NODENAMEPREFIX:-docker-}"
+export LABELS="${LABELS:-docker}"
+export EXECUTORS="${EXECUTORS:-3}"
+export FSROOT="${FSROOT:-/tmp/jenkins}"
+export NODENAMEPREFIX="${NODENAMEPREFIX:-docker-}"
 export JENKINS_PASSWORD="$(cat /run/secrets/jenkins-agent-password)"
 
 mkdir -p $FSROOT
