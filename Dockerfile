@@ -3,7 +3,7 @@ MAINTAINER Chad Gilbert <chad.gilbert@cqlcorp.com>
 
 ARG JENKINS_SWARM_CLIENT_VERSION=3.9
 
-RUN apk --update add openjdk8-jre git ca-certificates wget \
+RUN apk --update add openjdk8-jre git ca-certificates wget git-lfs \
     && wget -O swarm-client.jar https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/${JENKINS_SWARM_CLIENT_VERSION}/swarm-client-${JENKINS_SWARM_CLIENT_VERSION}.jar
 
 COPY entrypoint.sh /
